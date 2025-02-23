@@ -59,6 +59,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".experience-link .card");
+
+    cards.forEach(card => {
+        // En móviles: Ampliar mientras está presionado
+        card.addEventListener("touchstart", function () {
+            this.style.transform = "scale(1.05)";
+            this.style.boxShadow = "0px 5px 15px rgba(0, 0, 0, 0.3)";
+        });
+
+        // En móviles: Volver al estado original cuando se suelta
+        card.addEventListener("touchend", function () {
+            this.style.transform = "scale(1)";
+            this.style.boxShadow = "none";
+        });
+    });
+});
+
 
 
 

@@ -251,28 +251,34 @@ section {
     display: block;
 }
 
-/* Evitar subrayado azul en el texto */
+/* --- Evitar subrayado azul en el texto --- */
+.experience-link {
+    text-decoration: none;
+    display: block;
+}
+
 .experience-link h5,
 .experience-link p {
     text-decoration: none !important;
     color: inherit;
 }
 
-/* Efecto de hover solo en computadoras */
+/* --- Efecto de hover solo en computadoras --- */
 @media (hover: hover) {
     .experience-link .card:hover {
         transform: scale(1.05);
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 }
 
-/* Efecto de active solo en teléfonos (al mantener presionado) */
+/* --- Evitar hover en dispositivos táctiles --- */
 @media (hover: none) {
-    .experience-link .card:active {
-        transform: scale(1.05);
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    .experience-link .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
 }
+
 
 
 
