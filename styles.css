@@ -245,5 +245,35 @@ section {
     object-fit: cover;
 }
 
+/* --- Asegurar que la tarjeta es clickeable sin afectar el texto --- */
+.experience-link {
+    text-decoration: none;
+    display: block;
+}
+
+/* Evitar subrayado azul en el texto */
+.experience-link h5,
+.experience-link p {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Efecto de hover solo en computadoras */
+@media (hover: hover) {
+    .experience-link .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Efecto de active solo en teléfonos (al mantener presionado) */
+@media (hover: none) {
+    .experience-link .card:active {
+        transform: scale(1.05);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
 
 
