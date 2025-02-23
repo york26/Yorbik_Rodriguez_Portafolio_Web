@@ -4,45 +4,54 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.querySelector(".navbar-collapse");
 
-    // Mantener el modo oscuro después de recargar la página
-    if (localStorage.getItem("darkMode") === "enabled") {
+    // Comprobar si el modo oscuro está activado en la sesión actual
+    if (sessionStorage.getItem("darkMode") === "enabled") {
+        enableDarkMode();
+    }
+
+    // Función para activar el modo oscuro
+    function enableDarkMode() {
         document.body.classList.add("dark-mode");
         document.querySelector(".navbar").classList.add("dark-mode");
         document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
         darkModeToggle.textContent = "Modo Claro";
+        sessionStorage.setItem("darkMode", "enabled"); // Guarda en sessionStorage
     }
 
-    // Función para cerrar el menú en móviles si está abierto
-    function closeMenu() {
-        if (navbarCollapse.classList.contains("show")) {
-            navbarToggler.click(); // Cierra el menú
-        }
+    // Función para desactivar el modo oscuro
+    function disableDarkMode() {
+        document.body.classList.remove("dark-mode");
+        document.querySelector(".navbar").classList.remove("dark-mode");
+        document.querySelectorAll(".card").forEach(card => card.classList.remove("dark-mode"));
+        darkModeToggle.textContent = "Modo Oscuro";
+        sessionStorage.removeItem("darkMode"); // Elimina el modo oscuro al cerrar
     }
 
-    // Alternar el modo oscuro y cerrar el menú
+    // Alternar modo oscuro al hacer clic
     darkModeToggle.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        document.querySelector(".navbar").classList.toggle("dark-mode");
-        document.querySelectorAll(".card").forEach(card => card.classList.toggle("dark-mode"));
-
         if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("darkMode", "enabled");
-            this.textContent = "Modo Claro";
+            disableDarkMode();
         } else {
-            localStorage.setItem("darkMode", "disabled");
-            this.textContent = "Modo Oscuro";
+            enableDarkMode();
         }
-
-        setTimeout(closeMenu, 300); // Cierra el menú con un ligero retraso
+        setTimeout(closeMenu, 300); // Cierra el menú si está abierto
     });
 
-    // Cerrar el menú al hacer clic en un enlace
+    // Cerrar el menú al hacer clic en una opción
     navLinks.forEach(link => {
         link.addEventListener("click", function () {
-            setTimeout(closeMenu, 300); // Cierra el menú con un ligero retraso
+            setTimeout(closeMenu, 300);
         });
     });
+
+    // Función para cerrar el menú en móviles
+    function closeMenu() {
+        if (navbarCollapse.classList.contains("show")) {
+            navbarToggler.click();
+        }
+    }
 });
+
 
 
 
