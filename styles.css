@@ -1,3 +1,22 @@
+/* Fuente para títulos */
+h1, h2, h5, .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* Fuente para textos y párrafos */
+body, p, .card-text, .lead {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+
+/* Mejorar la legibilidad de los botones */
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     transition: background-color 0.5s, color 0.5s;
@@ -11,10 +30,7 @@ body.dark-mode {
 .navbar {
     transition: background-color 0.5s, color 0.5s;
 }
-.navbar.dark-mode {
-    background-color: #212529;
-    color: #f8f9fa;
-}
+
 .card {
     transition: transform 0.5s;
     border: 1px solid #007bff;
@@ -69,5 +85,126 @@ h5 {
 }
 footer p {
     color: #6c757d;
+}
+
+.navbar.dark-mode {
+    background-color: #212529 !important;
+}
+
+.btn-light.dark-mode {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Ajustar el fondo de las tarjetas en modo oscuro */
+.dark-mode .card {
+    background-color: #212529;
+    color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+}
+
+/* Ajustar los títulos en modo oscuro */
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h5, 
+.dark-mode .card-title {
+    color: #f8f9fa;
+}
+
+/* Ajustar los párrafos en modo oscuro */
+.dark-mode p, 
+.dark-mode .card-text, 
+.dark-mode .lead {
+    color: #d1d1d1;
+}
+
+/* Ajustar enlaces en modo oscuro */
+.dark-mode .list-inline-item a {
+    color: #f8f9fa;
+}
+
+.dark-mode .list-inline-item a:hover {
+    color: #d1d1d1;
+}
+
+/* Ajustar botón de modo oscuro */
+.dark-mode #darkModeToggle {
+    background-color: #f8f9fa;
+    color: #212529;
+    border: 1px solid #f8f9fa;
+}
+
+/* Ajustar imágenes dentro de los proyectos */
+.card-img-top {
+    width: 100%;  /* Asegura que la imagen ocupe el ancho del contenedor */
+    height: 200px; /* Establece una altura fija para uniformidad */
+    object-fit: cover; /* Recorta la imagen para llenar el espacio sin distorsionarse */
+    border-radius: 10px; /* Opcional: redondea las esquinas para un mejor diseño */
+}
+
+/* Ajustar imágenes de los proyectos para que sean responsivas */
+.card-img-top {
+    width: 100%;  /* Asegura que la imagen ocupe el ancho del contenedor */
+    height: auto; /* Permite que la altura sea ajustable automáticamente */
+    max-height: 250px; /* Mantiene las imágenes dentro de un tamaño adecuado */
+    object-fit: cover; /* Evita distorsión y ajusta el recorte */
+}
+
+/* Ajustar la imagen de perfil */
+.profile-img {
+    width: 120px;
+    height: 120px;
+}
+
+@media (min-width: 768px) {
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Ajustar los títulos para pantallas pequeñas */
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Ajustar el navbar en móviles */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+}
+
+/* Ajustar secciones para que no se vean tan grandes en móviles */
+@media (max-width: 576px) {
+    section {
+        padding: 20px;
+    }
+}
+
+/* Ajustar tamaño de tarjetas en móviles */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Ajustar el desplazamiento del menú */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajustar espacio para que el contenido no quede detrás del navbar */
+section {
+    scroll-margin-top: 80px; /* Ajusta la distancia según la altura del navbar */
 }
 
