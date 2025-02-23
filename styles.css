@@ -49,14 +49,6 @@ body.dark-mode {
 }
 
 
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
 .profile-img {
     border-radius: 50%;
     width: 150px;
