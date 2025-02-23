@@ -31,17 +31,24 @@ body.dark-mode {
     transition: background-color 0.5s, color 0.5s;
 }
 
+/* --- Efecto de ampliación en computadoras (hover) y en teléfonos (active) --- */
 .card {
-    transition: transform 0.5s;
-    border: 1px solid #007bff;
-    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+/* En computadoras: ampliar al pasar el mouse */
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
-.heartbeat {
-    animation: heartbeat 1.5s infinite;
+
+/* En móviles: ampliar al mantener presionado */
+.card:active {
+    transform: scale(1.08);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
+
+
 @keyframes heartbeat {
     0%, 100% {
         transform: scale(1);
@@ -207,4 +214,44 @@ html {
 section {
     scroll-margin-top: 80px; /* Ajusta la distancia según la altura del navbar */
 }
+
+/* --- Aplica la animación solo a los proyectos --- */
+#projects .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* En computadoras: ampliar al pasar el mouse */
+#projects .card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* En móviles: ampliar al mantener presionado */
+#projects .card:active {
+    transform: scale(1.08);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Ajuste de bordes en modo claro y oscuro para los proyectos --- */
+#projects .card {
+    border-radius: 15px; /* Bordes redondeados para que coincidan con la imagen */
+    overflow: hidden; /* Evita que las esquinas de la imagen sobresalgan */
+}
+
+/* Ajustar en modo oscuro */
+.dark-mode #projects .card {
+    background-color: #152238;
+    border: 1px solid #278EA5;
+}
+
+/* --- Ajustar las imágenes dentro de las tarjetas para que encajen bien --- */
+#projects .card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
 
