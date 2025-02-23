@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".experience-link .card");
+    const cards = document.querySelectorAll(".experience-link .card, .project-link .card");
 
     cards.forEach(card => {
         // En móviles: Ampliar mientras está presionado
@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 
