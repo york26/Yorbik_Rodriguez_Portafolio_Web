@@ -4,9 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.querySelector(".navbar-collapse");
 
-    // Comprobar si el modo oscuro está activado en la sesión actual
-    if (sessionStorage.getItem("darkMode") === "enabled") {
-        enableDarkMode();
+    // Detectar si la página se está cargando por una navegación nueva (no recarga)
+    if (performance.navigation.type === 1) { 
+        // Si es una recarga, mantener el modo oscuro si estaba activado
+        if (sessionStorage.getItem("darkMode") === "enabled") {
+            enableDarkMode();
+        }
+    } else {
+        // Si es una nueva navegación, asegurarse de que inicie en modo claro
+        sessionStorage.removeItem("darkMode");
+        disableDarkMode();
     }
 
     // Función para activar el modo oscuro
@@ -15,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".navbar").classList.add("dark-mode");
         document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
         darkModeToggle.textContent = "Modo Claro";
-        sessionStorage.setItem("darkMode", "enabled"); // Guarda en sessionStorage
+        sessionStorage.setItem("darkMode", "enabled"); // Guarda el estado solo para la sesión
     }
 
     // Función para desactivar el modo oscuro
@@ -24,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".navbar").classList.remove("dark-mode");
         document.querySelectorAll(".card").forEach(card => card.classList.remove("dark-mode"));
         darkModeToggle.textContent = "Modo Oscuro";
-        sessionStorage.removeItem("darkMode"); // Elimina el modo oscuro al cerrar
+        sessionStorage.removeItem("darkMode"); // Elimina la configuración
     }
 
     // Alternar modo oscuro al hacer clic
